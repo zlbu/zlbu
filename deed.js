@@ -1113,10 +1113,10 @@
   if (resetBtn) resetBtn.addEventListener("click", function () {
     if (!window.confirm("입력한 내용을 모두 지웁니다. 저장된 값도 함께 삭제됩니다.")) return;
     $("#deedForm").reset();
-    try { localStorage.removeItem(KEY); } catch (e) {}
     TYPE = "sale"; MODE = "chuktak";
     $$('input[name="auctionMode"]').forEach(function (r) { r.checked = r.value === "chuktak"; });
     render(true);
+    try { localStorage.removeItem(KEY); } catch (e) {}
   });
 
   /* 예시값 (가상 인물·금액) */
