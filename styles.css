@@ -449,6 +449,112 @@ svg { width: 1em; height: 1em; fill: none; }
 }
 .btn-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 2px; }
 
+/* 온라인 클래스 카드 */
+.course__media {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line-soft);
+  background: #0c1526;
+}
+.course__media img { display: block; width: 100%; height: 232px; object-fit: cover; object-position: center 18%; }
+.course__media--wide img { height: 232px; object-position: center; }
+.course__media--book { display: flex; align-items: center; justify-content: center; height: 232px; background: #0c1526; }
+.course__media--book .course__media__bg {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: blur(16px) brightness(0.5) saturate(1.15);
+  transform: scale(1.12);
+}
+.course__media--book .course__media__fg {
+  position: relative;
+  width: auto; max-width: 100%; height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.5));
+}
+.course__platform {
+  position: absolute;
+  left: 10px; top: 10px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: #10192b;
+  background: linear-gradient(140deg, #f6e3ad, #d9b25f);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+.course__facts {
+  list-style: none;
+  margin: 2px 0 0;
+  padding: 12px 0 0;
+  border-top: 1px solid var(--line-soft);
+  display: grid;
+  gap: 7px;
+}
+.course__facts li {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 10px;
+  align-items: baseline;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--muted-2);
+}
+.course__facts strong { font-size: 12px; color: #e6eef9; letter-spacing: -0.01em; }
+.course__price { margin: 0; font-size: 12.5px; color: #e6eef9; line-height: 1.6; }
+.course__price s { color: var(--muted-2); }
+.course__price strong { color: var(--gold-light); font-size: 15px; letter-spacing: -0.02em; }
+.course__hint { display: block; margin-top: 4px; font-size: 11px; line-height: 1.6; color: var(--muted-2); }
+
+/* 커리큘럼 접이식 목록 */
+.curriculum { border-top: 1px solid var(--line-soft); padding-top: 10px; }
+.curriculum > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  cursor: pointer;
+  list-style: none;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--gold-light);
+}
+.curriculum > summary::-webkit-details-marker { display: none; }
+.curriculum > summary::after { content: "＋"; font-size: 13px; color: var(--muted-2); }
+.curriculum[open] > summary::after { content: "－"; }
+.curriculum ol {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  max-height: 320px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.curriculum li {
+  display: grid;
+  grid-template-columns: 26px 1fr auto;
+  gap: 8px;
+  align-items: baseline;
+  padding: 6px 2px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.045);
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.curriculum li:last-child { border-bottom: 0; }
+.curriculum__no { font-size: 10.5px; font-weight: 700; color: var(--gold-deep); text-align: right; }
+.curriculum__time { font-size: 10.5px; color: var(--muted-2); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.curriculum li.curriculum__chap {
+  display: block;
+  padding: 12px 2px 5px;
+  border-bottom: 0;
+  font-size: 11px;
+  font-weight: 800;
+  color: #cfd9e7;
+}
+
 .yt-channel { margin-top: 16px; }
 .yt-channel__top {
   display: flex;

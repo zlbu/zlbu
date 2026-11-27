@@ -1,5 +1,5 @@
 /* 즐부 허브 서비스 워커 — 셸은 캐시, 문서는 네트워크 우선 */
-const VERSION = "zlbu-hub-v1.0.1";
+const VERSION = "zlbu-hub-v1.1.0";
 
 const SHELL = [
   "./",
@@ -11,6 +11,8 @@ const SHELL = [
   "./assets/profile.jpg",
   "./assets/book-gyeongmae.jpg",
   "./assets/book-1eok.jpg",
+  "./assets/classu-thumb.jpg",
+  "./assets/class101-thumb.jpg",
   "./assets/icon-192.png",
   "./assets/icon-512.png",
   "./assets/icon-maskable-512.png",
