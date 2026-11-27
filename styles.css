@@ -504,7 +504,7 @@ svg { width: 1em; height: 1em; fill: none; }
 }
 .course__facts strong { font-size: 12px; color: #e6eef9; letter-spacing: -0.01em; }
 .course__price { margin: 0; font-size: 12.5px; color: #e6eef9; line-height: 1.6; }
-.course__price s { color: var(--muted-2); }
+.course__price s { color: var(--muted-2); margin-right: 8px; }
 .course__price strong { color: var(--gold-light); font-size: 15px; letter-spacing: -0.02em; }
 .course__hint { display: block; margin-top: 4px; font-size: 11px; line-height: 1.6; color: var(--muted-2); }
 
