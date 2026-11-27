@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>즐부 — 경매·등기, 혼자 끝내는 힘</title>
+<meta name="description" content="즐부 박성찬의 경매·공매·셀프등기 실무 허브. 클래스유 기초강의, 클래스101 강의, 유튜브 강의 520편, 저서 3권, 물건검색 챌린지와 1:1 상담을 한곳에서.">
+<meta name="theme-color" content="#0A1220">
+<meta name="color-scheme" content="dark">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="즐부">
+<meta property="og:type" content="website">
+<meta property="og:title" content="즐부 — 경매·등기, 혼자 끝내는 힘">
+<meta property="og:description" content="클래스유·클래스101·유튜브 강의 520편, 저서 3권, 물건검색 챌린지와 1:1 상담을 한곳에.">
+<meta property="og:image" content="https://zlbu.github.io/zlbu-hub/assets/og-cover.jpg">
+<meta property="og:url" content="https://zlbu.github.io/zlbu-hub/">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://zlbu.github.io/zlbu-hub/">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-4.5v-6h-5v6H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><rect x="3.2" y="5" width="17.6" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M10.4 9.2 15 12l-4.6 2.8z" fill="currentColor"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M5 4.6h5.2c1 0 1.8.7 1.8 1.7v13c0-.9-.8-1.6-1.8-1.6H5z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M19 4.6h-5.2c-1 0-1.8.7-1.8 1.7v13c0-.9.8-1.6 1.8-1.6H19z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M20 12.2c0 3.6-3.6 6.5-8 6.5-1 0-2-.2-2.9-.5L5 20l.9-3.2A6.2 6.2 0 0 1 4 12.2c0-3.6 3.6-6.5 8-6.5s8 2.9 8 6.5Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-8.5 8.5M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-kakao" viewBox="0 0 24 24"><rect x="3.4" y="5" width="17.2" height="11.8" rx="5.2" fill="currentColor"/><path d="M8.6 16.2 7.2 19.6l3.9-2.4z" fill="currentColor"/></symbol>
+</svg>
+
+<div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand__mark" aria-hidden="true">즐</span>
+      <span class="brand__text">
+        <strong>즐부</strong>
+        <small>즐기는 부자들 · 경공매·등기 실무</small>
+      </span>
+    </div>
+    <button class="install-btn" id="installBtn" type="button" hidden>앱 설치</button>
+    <nav class="topnav" aria-label="주요 메뉴">
+      <button class="topnav__btn is-active" type="button" data-tab="home" aria-current="page">홈</button>
+      <button class="topnav__btn" type="button" data-tab="lecture">강의·유튜브</button>
+      <button class="topnav__btn" type="button" data-tab="store">전자책·도구</button>
+      <button class="topnav__btn" type="button" data-tab="challenge">챌린지·상담</button>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ================= 홈 ================= -->
+    <section class="view" id="view-home" role="tabpanel" aria-labelledby="tab-home">
+      <div class="hero">
+        <div class="hero__bg" aria-hidden="true"></div>
+        <div class="hero__inner">
+          <p class="eyebrow">즐기는 부자들 · 즐부 박성찬</p>
+          <h1 class="hero__title">경매·등기,<br><em>혼자 끝내는 힘</em></h1>
+          <p class="hero__desc">클래스유 기초강의·클래스101·유튜브 강의 520편과 저서 3권, 1:1 상담까지 — 즐부가 쌓아온 실무를 한곳에 모았습니다.</p>
+
+          <ul class="stats" aria-label="주요 실적">
+            <li><strong>400<sup>건+</sup></strong><span>경·공매 실무</span></li>
+            <li><strong>276<sup>건</sup></strong><span>셀프등기</span></li>
+            <li><strong>3<sup>권</sup></strong><span>저서</span></li>
+          </ul>
+
+          <div class="cta-row">
+            <a class="btn btn--primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfwuVyeQzxVSRrWcB-wGMDtxvFMosm_8G0N4E8Bsr81xOWDgg/viewform" target="_blank" rel="noopener">물건검색 챌린지 참여</a>
+            <a class="btn btn--ghost" href="https://docs.google.com/forms/d/e/1FAIpQLSfJ6wxm55cJX0zQkpUvkW0kQweoBFYHekkm5fqNrBP9eZocig/viewform" target="_blank" rel="noopener">1:1 상담</a>
+          </div>
+          <a class="hero__kakao" href="http://pf.kakao.com/_IxfqeX/chat" target="_blank" rel="noopener">
+            <svg><use href="#i-kakao"/></svg> 카카오톡 채널로 바로 문의 — 24시간 열려 있습니다
+          </a>
+        </div>
+      </div>
+
+      <div class="wrap">
+        <div class="card philosophy">
+          <p class="philosophy__tag">휴먼 인 더 루프</p>
+          <p class="philosophy__line">“AI가 계산은 대신해도,<br>마지막 판단은 사람이 합니다.”</p>
+          <p class="philosophy__body">즐부의 강의·도구·상담은 모두 그 판단을 내 손에 남기는 쪽으로 만들어져 있습니다. 대신 안 되는 것은 안 된다고 말합니다. 물건이 맞지 않으면 다음 물건을 권합니다.</p>
+        </div>
+
+        <h2 class="section-title">바로 가기</h2>
+        <div class="quick-grid">
+          <a class="quick" href="http://pf.kakao.com/_IxfqeX/chat" target="_blank" rel="noopener">
+            <span class="quick__ico"><svg><use href="#i-kakao"/></svg></span>
+            <span class="quick__title">카카오톡 24시간</span>
+            <span class="quick__sub">챌린지·상담 한 줄 문의</span>
+          </a>
+          <button class="quick" type="button" data-go="lecture">
+            <span class="quick__ico"><svg><use href="#i-play"/></svg></span>
+            <span class="quick__title">강의·유튜브</span>
+            <span class="quick__sub">기초부터 실전까지</span>
+          </button>
+          <button class="quick" type="button" data-go="store">
+            <span class="quick__ico"><svg><use href="#i-book"/></svg></span>
+            <span class="quick__title">전자책·도구</span>
+            <span class="quick__sub">저서 3권 · 엑셀 도구</span>
+          </button>
+          <button class="quick" type="button" data-go="challenge">
+            <span class="quick__ico"><svg><use href="#i-chat"/></svg></span>
+            <span class="quick__title">챌린지·상담</span>
+            <span class="quick__sub">2년 반의 기록</span>
+          </button>
+        </div>
+
+        <h2 class="section-title">즐부가 하는 일</h2>
+        <ol class="steps">
+          <li><span class="steps__no">01</span><div><strong>가르칩니다</strong><p>실전 기수반 23~36기, 등기부·재개발·대항력 특강, 클래스유·클래스101.</p></div></li>
+          <li><span class="steps__no">02</span><div><strong>도구로 남깁니다</strong><p>셀프등기 자동완성 엑셀, 계약서 템플릿, 검산도표 — 손으로 쓰는 대신 순서를 남깁니다.</p></div></li>
+          <li><span class="steps__no">03</span><div><strong>끝까지 봅니다</strong><p>낙찰 뒤 권리·명도·등기까지. 60분 상담과 정리본으로 다음 행동을 정리합니다.</p></div></li>
+        </ol>
+
+        <h2 class="section-title">채널</h2>
+        <div class="chips">
+          <a class="chip" href="https://blog.naver.com/iuuime" target="_blank" rel="noopener">네이버 블로그</a>
+          <a class="chip" href="https://cafe.naver.com/zlbu" target="_blank" rel="noopener">카페 즐기는 부자들</a>
+          <a class="chip" href="https://www.youtube.com/@zlbutv" target="_blank" rel="noopener">유튜브 즐부공감</a>
+          <a class="chip" href="https://brunch.co.kr/@zlbu" target="_blank" rel="noopener">브런치</a>
+          <a class="chip" href="https://zlbu.tistory.com" target="_blank" rel="noopener">티스토리</a>
+          <a class="chip" href="https://www.instagram.com/zlbudongsan" target="_blank" rel="noopener">인스타그램</a>
+          <a class="chip" href="https://soomgo.com/profile/users/19536128" target="_blank" rel="noopener">숨고</a>
+          <a class="chip" href="https://kmong.com/gig/823597" target="_blank" rel="noopener">크몽</a>
+        </div>
+
+        <div class="install-card" id="installCard">
+          <div>
+            <strong>홈 화면에 추가하면 앱처럼 열립니다</strong>
+            <p>주소창 없이 전체 화면으로 열리고, 한 번 열면 오프라인에서도 표지가 뜹니다.</p>
+          </div>
+          <button class="btn btn--small" id="installBtn2" type="button" hidden>추가</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 강의·유튜브 ================= -->
+    <section class="view" id="view-lecture" role="tabpanel" aria-labelledby="tab-lecture" hidden>
+      <div class="wrap">
+        <header class="page-head">
+          <p class="eyebrow">강의 · 유튜브</p>
+          <h1>기초부터 실전까지,<br>같은 기준으로</h1>
+          <p>클래스유의 기초강의, 클래스101의 『경매근육』 과정, 유튜브 520편. 어디서 들어도 등기부를 읽는 순서는 같습니다.</p>
+        </header>
+
+        <div class="grid-2">
+          <article class="card course">
+            <span class="badge badge--soon">링크 준비 중</span>
+            <h3>클래스유 <small>기초강의</small></h3>
+            <p>경매를 처음 시작하는 분을 위한 기초 과정. 용어·등기부·권리분석 순서를 한 번에 잡습니다.</p>
+            <div class="course__note">강의 페이지 주소를 아직 확보하지 못했습니다. 클래스유에서 ‘즐부’로 검색하시거나, 카카오톡으로 문의하시면 바로 안내드립니다.</div>
+            <div class="btn-row">
+              <a class="btn btn--ghost btn--sm" href="https://classu.co.kr" target="_blank" rel="noopener">클래스유 열기</a>
+              <a class="btn btn--ghost btn--sm" href="http://pf.kakao.com/_IxfqeX/chat" target="_blank" rel="noopener">카톡 문의</a>
+            </div>
+          </article>
+
+          <article class="card course">
+            <span class="badge badge--soon">링크 준비 중</span>
+            <h3>클래스101 <small>『경매근육』</small></h3>
+            <p>권리분석부터 낙찰까지 8챕터로 짠 온라인 클래스. 책에 담은 순서를 그대로 영상으로 옮겼습니다.</p>
+            <div class="course__note">클래스 주소를 아직 확보하지 못했습니다. 클래스101에서 ‘경매근육’으로 검색하시거나 카카오톡으로 문의해 주세요.</div>
+            <div class="btn-row">
+              <a class="btn btn--ghost btn--sm" href="https://class101.net" target="_blank" rel="noopener">클래스101 열기</a>
+              <a class="btn btn--ghost btn--sm" href="http://pf.kakao.com/_IxfqeX/chat" target="_blank" rel="noopener">카톡 문의</a>
+            </div>
+          </article>
+        </div>
+
+        <article class="card yt-channel">
+          <div class="yt-channel__top">
+            <img src="assets/profile.jpg" alt="" width="56" height="56" loading="lazy">
+            <div>
+              <strong>즐부공감</strong>
+              <span>@zlbutv · 구독자 1.16천명 · 동영상 520개</span>
+            </div>
+            <a class="btn btn--primary btn--sm" href="https://www.youtube.com/@zlbutv" target="_blank" rel="noopener">채널 열기</a>
+          </div>
+          <p>매주 올라오는 경매 기초·등기부·명도 강의와 임장 영상. 재생목록으로 순서대로 보시면 책의 목차와 같은 흐름입니다.</p>
+        </article>
+
+        <h2 class="section-title">재생목록</h2>
+        <div class="playlists">
+          <a class="pl" href="https://www.youtube.com/playlist?list=PLfi1ya0AxUNQAfkrezisxvmq0yKGyE-z_" target="_blank" rel="noopener">
+            <strong>즐부의 경매기초 강의 모음</strong><span>78개 · 처음 시작할 때</span>
+          </a>
+          <a class="pl" href="https://www.youtube.com/playlist?list=PLfi1ya0AxUNTVHqKZgdSVLn1C4XBqDGND" target="_blank" rel="noopener">
+            <strong>등기부설명</strong><span>31개 · 등기부 읽기</span>
+          </a>
+          <a class="pl" href="https://www.youtube.com/playlist?list=PLfi1ya0AxUNRXfhwQ3634go1118Yl5VKZ" target="_blank" rel="noopener">
+            <strong>등기부멱살강의</strong><span>44개 · 권리분석 심화</span>
+          </a>
+          <a class="pl" href="https://www.youtube.com/playlist?list=PLfi1ya0AxUNSjtDxcqHxTbPS2O9L-UDbW" target="_blank" rel="noopener">
+            <strong>부동산경매팁</strong><span>119개 · 실전 요령</span>
+          </a>
+          <a class="pl" href="https://www.youtube.com/playlist?list=PLfi1ya0AxUNSRYGZFt0cuYDJcUiz62tSA" target="_blank" rel="noopener">
+            <strong>수익 성과 사례</strong><span>32개 · 수강생 기록</span>
+          </a>
+          <a class="pl" href="https://www.youtube.com/playlist?list=PLfi1ya0AxUNQHHXGIxFhR66VMfGu66L8g" target="_blank" rel="noopener">
+            <strong>마인드셋</strong><span>55개 · 오래 남는 태도</span>
+          </a>
+          <a class="pl" href="https://www.youtube.com/playlist?list=PLfi1ya0AxUNQyrpdVddYdNglp5y8z6Rpx" target="_blank" rel="noopener">
+            <strong>독서</strong><span>46개 · 함께 읽는 책</span>
+          </a>
+        </div>
+
+        <h2 class="section-title">먼저 볼 영상</h2>
+        <div class="videos">
+          <a class="video" href="https://www.youtube.com/watch?v=8LVE95B5bmc" target="_blank" rel="noopener">
+            <span class="video__thumb"><img src="https://i.ytimg.com/vi/8LVE95B5bmc/hqdefault.jpg" alt="" loading="lazy"><span class="video__time">4:35</span></span>
+            <span class="video__title">경매 입문 5분 컷! 임의경매 vs 강제경매</span>
+          </a>
+          <a class="video" href="https://www.youtube.com/watch?v=RXAxll7zCS8" target="_blank" rel="noopener">
+            <span class="video__thumb"><img src="https://i.ytimg.com/vi/RXAxll7zCS8/hqdefault.jpg" alt="" loading="lazy"><span class="video__time">0:38</span></span>
+            <span class="video__title">생애최초 취득세 200만원 감면, 이 조건 모르면 못 받습니다</span>
+          </a>
+          <a class="video" href="https://www.youtube.com/watch?v=cJwLJxqUjbQ" target="_blank" rel="noopener">
+            <span class="video__thumb"><img src="https://i.ytimg.com/vi/cJwLJxqUjbQ/hqdefault.jpg" alt="" loading="lazy"><span class="video__time">0:54</span></span>
+            <span class="video__title">이거 하나 몰라서 3억 세금 폭탄 맞았다</span>
+          </a>
+          <a class="video" href="https://www.youtube.com/watch?v=u1X-FHA4VCc" target="_blank" rel="noopener">
+            <span class="video__thumb"><img src="https://i.ytimg.com/vi/u1X-FHA4VCc/hqdefault.jpg" alt="" loading="lazy"><span class="video__time">0:41</span></span>
+            <span class="video__title">서울 아파트 2억 싸게, 경매로 가능합니다</span>
+          </a>
+          <a class="video" href="https://www.youtube.com/watch?v=pnlaPW9wMiA" target="_blank" rel="noopener">
+            <span class="video__thumb"><img src="https://i.ytimg.com/vi/pnlaPW9wMiA/hqdefault.jpg" alt="" loading="lazy"><span class="video__time">14:26</span></span>
+            <span class="video__title">헬리오시티 vs 올림픽훼밀리타운, 송파 투톱 랜선 임장</span>
+          </a>
+          <a class="video" href="https://www.youtube.com/watch?v=Olh0CqE3Rp8" target="_blank" rel="noopener">
+            <span class="video__thumb"><img src="https://i.ytimg.com/vi/Olh0CqE3Rp8/hqdefault.jpg" alt="" loading="lazy"><span class="video__time">3:57</span></span>
+            <span class="video__title">경매초보자가 가장 궁금해하는 질문들</span>
+          </a>
+        </div>
+
+        <article class="card mini-card">
+          <strong>음악은 ‘힐유’에서</strong>
+          <p>3040을 위한 위로의 발라드 — 즐부의 또 다른 채널입니다.</p>
+          <a class="btn btn--ghost btn--sm" href="https://www.youtube.com/@healu.official" target="_blank" rel="noopener">힐유 채널</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= 전자책·도구 ================= -->
+    <section class="view" id="view-store" role="tabpanel" aria-labelledby="tab-store" hidden>
+      <div class="wrap">
+        <header class="page-head">
+          <p class="eyebrow">전자책 · 도구</p>
+          <h1>읽고, 계산하고,<br>그대로 씁니다</h1>
+          <p>책에 정리한 기준을 강의와 상담에서 그대로 씁니다. 가격은 각 판매처 기준입니다.</p>
+        </header>
+
+        <div class="books">
+        <article class="book">
+          <img class="book__cover" src="assets/book-gyeongmae.jpg" alt="『경매근육』 표지" loading="lazy">
+          <div class="book__body">
+            <h3>경매근육</h3>
+            <p class="book__sub">내 집 마련과 임대수익을 위한 기본기</p>
+            <p class="book__meta">즐부·리원 · 2026.09 · 261쪽</p>
+            <div class="book__links">
+              <span class="book__label">PDF 전자책 10,000원</span>
+              <a href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000013559741" target="_blank" rel="noopener">교보eBook</a>
+              <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=403811402" target="_blank" rel="noopener">알라딘</a>
+              <a href="https://www.yes24.com/product/goods/196112511" target="_blank" rel="noopener">예스24</a>
+              <span class="book__label">종이책 23,000원</span>
+              <a href="https://product.kyobobook.co.kr/detail/S000221194780" target="_blank" rel="noopener">교보문고</a>
+              <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=401866998" target="_blank" rel="noopener">알라딘</a>
+              <a href="https://www.yes24.com/product/goods/196189764" target="_blank" rel="noopener">예스24</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="book">
+          <img class="book__cover" src="assets/book-1eok.jpg" alt="『1억 근육』 표지" loading="lazy">
+          <div class="book__body">
+            <h3>1억 근육</h3>
+            <p class="book__sub">그 어떤 상황에서도 다시 일어설 수 있는 부의 기초 체력</p>
+            <p class="book__meta">‘즐부’ 박성찬 · 쏭북스 · 2025.04 · 296쪽</p>
+            <div class="book__links">
+              <span class="book__label">종이책 19,800원</span>
+              <a href="https://product.kyobobook.co.kr/detail/S000216210464" target="_blank" rel="noopener">교보문고</a>
+              <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=362152644" target="_blank" rel="noopener">알라딘</a>
+              <a href="https://www.yes24.com/product/goods/144484222" target="_blank" rel="noopener">예스24</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="book">
+          <div class="book__cover book__cover--type" aria-hidden="true"><span>아무것도<br>아닌<br><em>암</em></span></div>
+          <div class="book__body">
+            <h3>아무것도 아닌 암(앎)</h3>
+            <p class="book__sub">삶의 벼랑 끝에서 다시 일어서는 회복 서사</p>
+            <p class="book__meta">박성찬(즐부)·리원 · 2026.07 · 361쪽</p>
+            <div class="book__links">
+              <span class="book__label">PDF 전자책 10,000원</span>
+              <a href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000013286133" target="_blank" rel="noopener">교보eBook</a>
+              <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=399508931" target="_blank" rel="noopener">알라딘</a>
+              <a href="https://www.yes24.com/product/goods/193985247" target="_blank" rel="noopener">예스24</a>
+              <span class="book__label">종이책 26,000원 / 흑백판 19,800원</span>
+              <a href="https://product.kyobobook.co.kr/detail/S000220705880" target="_blank" rel="noopener">컬러판</a>
+              <a href="https://product.kyobobook.co.kr/detail/S000220517099" target="_blank" rel="noopener">흑백판</a>
+            </div>
+          </div>
+        </article>
+        </div>
+
+        <h2 class="section-title">도구·컨설팅</h2>
+
+        <a class="card tool tool--live" href="https://kmong.com/gig/823597" target="_blank" rel="noopener">
+          <div class="tool__head">
+            <strong>경매·공매 1:1 컨설팅</strong>
+            <span class="badge badge--live">판매 중</span>
+          </div>
+          <p>전화 60분 — 낙찰 뒤가 진짜 승부. 권리분석·입찰가·명도·소송 방향까지. 100,000원~</p>
+          <span class="tool__link">크몽에서 보기 <svg><use href="#i-arrow"/></svg></span>
+        </a>
+
+        <a class="card tool tool--live" href="https://soomgo.com/profile/users/19536128" target="_blank" rel="noopener">
+          <div class="tool__head">
+            <strong>숨고 — 재테크·부동산 레슨</strong>
+            <span class="badge badge--live">사업자 인증</span>
+          </div>
+          <p>등기 276건·경공매 400건, 낙찰 뒤까지 책임지는 실전 컨설팅. 상담 전 서류를 먼저 읽고 들어갑니다.</p>
+          <span class="tool__link">프로필 보기 <svg><use href="#i-arrow"/></svg></span>
+        </a>
+
+        <article class="card tool tool--soon">
+          <div class="tool__head">
+            <strong>셀프등기 자동완성 엑셀 3종</strong>
+            <span class="badge badge--soon">등록 준비 중</span>
+          </div>
+          <p>경매·일반매매·공매 서류를 한 파일에서. 수식만 쓰고 매크로는 넣지 않아 열 때 경고가 없습니다. 39,000원 예정.</p>
+          <a class="tool__link" href="http://pf.kakao.com/_IxfqeX/chat" target="_blank" rel="noopener">카톡으로 먼저 받기 <svg><use href="#i-arrow"/></svg></a>
+        </article>
+
+        <article class="card tool tool--soon">
+          <div class="tool__head">
+            <strong>계약서 템플릿 10종</strong>
+            <span class="badge badge--soon">등록 준비 중</span>
+          </div>
+          <p>공간임대·파티룸·비상주 사무실 등 실제로 쓰는 계약서 묶음. 수정해 바로 쓰는 워드·한글 서식.</p>
+          <a class="tool__link" href="http://pf.kakao.com/_IxfqeX/chat" target="_blank" rel="noopener">카톡으로 문의 <svg><use href="#i-arrow"/></svg></a>
+        </article>
+
+        <p class="fineprint">‘등록 준비 중’은 크몽 심사가 끝나지 않아 아직 구매 페이지가 열리지 않은 상품입니다. 심사가 끝나면 이 화면에서 바로 구매할 수 있게 연결합니다. 그전에는 카카오톡으로 문의해 주세요.</p>
+      </div>
+    </section>
+
+    <!-- ================= 챌린지·상담 ================= -->
+    <section class="view" id="view-challenge" role="tabpanel" aria-labelledby="tab-challenge" hidden>
+      <div class="wrap">
+        <header class="page-head">
+          <p class="eyebrow">챌린지 · 상담</p>
+          <h1>2년 반,<br>매일 물건 1건</h1>
+          <p>경매는 머리로 아는 순간에는 아무것도 달라지지 않습니다. 매일 한 건씩 물건을 보는 사람만 달라집니다.</p>
+        </header>
+
+        <ul class="stats stats--panel" aria-label="챌린지 기록">
+          <li><strong>2<sup>년 반</sup></strong><span>매일 이어진 기록</span></li>
+          <li><strong>50<sup>여 명</sup></strong><span>끝까지 남은 사람</span></li>
+          <li><strong>24<sup>회</sup></strong><span>완주 트랙</span></li>
+        </ul>
+
+        <div class="card narrative">
+          <p>2년 반 동안 수백 명이 다녀갔고, 50여 명이 남았습니다. 단 한 번도 빠뜨리지 않고 해낸 사람은 한 명입니다. 남은 사람들에게 일어난 일을 『경매근육』 8장에 그대로 담았습니다.</p>
+        </div>
+
+        <h2 class="section-title">남은 사람들에게 일어난 일</h2>
+        <div class="cases">
+          <article class="case">
+            <p class="case__who">이양희 · 3개월 만에 첫 낙찰</p>
+            <p>천호역 도보 1분 ‘샤인빌’ 201호를 감정가의 66%, <strong>2억 2,300만 원</strong>에 낙찰. 입찰자는 10명이었습니다. 한 방은 재계약해 월세로 이자를 충당하고, 남은 방은 단기임대로 돌렸습니다.</p>
+          </article>
+          <article class="case">
+            <p class="case__who">윤성 · 16년 차 워킹맘 → 고시원 사장</p>
+            <p>쌍둥이를 키우며 복직한 워킹맘. 아파트만 보던 검색을 오피스텔·상가·토지·차량까지 넓혔고, 찾은 고시원을 인수해 <strong>16개월째</strong> 운영하고 있습니다.</p>
+          </article>
+          <article class="case">
+            <p class="case__who">박지혜 · 5회 연속 완주가 만든 1억</p>
+            <p>창신역 역세권 단독주택, 매물가 4억 5천만 원. 건물과 토지가 따로, 공유자가 세 명이라 2년째 안 팔리던 집을 계산으로 협상해 <strong>3억 8천만 원</strong>에 계약했습니다.</p>
+          </article>
+          <article class="case">
+            <p class="case__who">양쑥 · 1년 만에 송파 입성</p>
+            <p>“송파 끝자락”이라 늘 제외하던 동네를 임장 100곳을 다닌 뒤 다르게 봤고, 그해 송파 올림픽훼밀리 재건축 대단지에 들어갔습니다.</p>
+          </article>
+        </div>
+
+        <h2 class="section-title">이렇게 운영합니다</h2>
+        <ul class="rules">
+          <li><span>매일</span> 물건 1건 검색해 게시판에 인증</li>
+          <li><span>매달</span> 20일 중 15건 이상이면 그 달 완주</li>
+          <li><span>24회</span> 를 채우면 완주 트랙</li>
+          <li><span>티타임</span> 매달 마지막 일요일 16시 · 서울 송파구 가락로 71, 404호</li>
+          <li><span>회차</span> 지금은 31회차(2026년 12월) 참여를 받습니다</li>
+        </ul>
+
+        <div class="cta-stack">
+          <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSfwuVyeQzxVSRrWcB-wGMDtxvFMosm_8G0N4E8Bsr81xOWDgg/viewform" target="_blank" rel="noopener">
+            <strong>물건검색 챌린지 신청</strong>
+            <span>이름·연락처·지금 상황만 남겨주시면 카카오톡으로 안내드립니다.</span>
+            <svg><use href="#i-arrow"/></svg>
+          </a>
+          <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSfJ6wxm55cJX0zQkpUvkW0kQweoBFYHekkm5fqNrBP9eZocig/viewform" target="_blank" rel="noopener">
+            <strong>1:1 상담 신청 (60분)</strong>
+            <span>경·공매 낙찰·처리, 명도, 부동산 소송·임차인 분쟁 상담.</span>
+            <svg><use href="#i-arrow"/></svg>
+          </a>
+          <a class="cta" href="http://pf.kakao.com/_IxfqeX/chat" target="_blank" rel="noopener">
+            <strong>카카오톡 24시간 채팅</strong>
+            <span>“챌린지 참여하고 싶습니다” 한 줄이면 됩니다.</span>
+            <svg><use href="#i-arrow"/></svg>
+          </a>
+        </div>
+
+        <p class="fineprint">참여 조건과 회비는 신청 후 개별로 안내드립니다. 이 앱의 안내는 교육·컨설팅이며 법률 자문이 아닙니다. 등기 대행과 소송 대리는 법무사·변호사 영역입니다.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="footer__brand">즐부 <span>즐기는 부자들</span></p>
+      <p class="footer__copy">경매·등기, 혼자 끝내는 힘.</p>
+      <dl class="footer__biz">
+        <div><dt>상호</dt><dd>주식회사 즐부</dd></div>
+        <div><dt>대표</dt><dd>박성찬</dd></div>
+        <div><dt>사업자등록번호</dt><dd>385-42-00556</dd></div>
+        <div><dt>주소</dt><dd>서울특별시 송파구 가락로 71, 4층 403호</dd></div>
+      </dl>
+      <p class="footer__note">© 2026 주식회사 즐부. 이 앱은 교육·컨설팅 안내이며 법률 자문이 아닙니다.</p>
+    </div>
+  </footer>
+</div>
+
+<nav class="tabbar" role="tablist" aria-label="주요 메뉴">
+  <button class="tab is-active" id="tab-home" role="tab" aria-selected="true" aria-controls="view-home" data-tab="home">    <svg><use href="#i-home"/></svg><span>홈</span>
+  </button>
+  <button class="tab" id="tab-lecture" role="tab" aria-selected="false" aria-controls="view-lecture" data-tab="lecture">
+    <svg><use href="#i-play"/></svg><span>강의·유튜브</span>
+  </button>
+  <button class="tab" id="tab-store" role="tab" aria-selected="false" aria-controls="view-store" data-tab="store">
+    <svg><use href="#i-book"/></svg><span>전자책·도구</span>
+  </button>
+  <button class="tab" id="tab-challenge" role="tab" aria-selected="false" aria-controls="view-challenge" data-tab="challenge">
+    <svg><use href="#i-chat"/></svg><span>챌린지·상담</span>
+  </button>
+</nav>
+
+<script src="app.js" defer></script>
+</body>
+</html>
