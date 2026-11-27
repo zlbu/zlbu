@@ -345,7 +345,7 @@
     margin: 0 !important;
     width: 100% !important;
     max-width: none !important;
-    padding: 10mm 13mm 9mm !important;
+    padding: 9mm 13mm 8mm !important;
     box-sizing: border-box;
     border: 0 !important;
     border-radius: 0 !important;
@@ -359,10 +359,10 @@
   .doc-sheet h3 { font-size: 15pt; }
   .doc-t { table-layout: auto; }
   .doc-t--cols { table-layout: fixed; }
-  .doc-t th, .doc-t td { padding: 2.1pt 4pt; border-color: #444; overflow-wrap: anywhere; }
-  .doc-head { padding-bottom: 6pt; margin-bottom: 8pt; }
-  .doc-sub { margin: 7pt 0 2pt; }
-  .doc-sign { margin-top: 9pt; }
+  .doc-t th, .doc-t td { padding: 2pt 4pt; border-color: #444; overflow-wrap: anywhere; }
+  .doc-head { padding-bottom: 5pt; margin-bottom: 6pt; }
+  .doc-sub { margin: 6pt 0 2pt; }
+  .doc-sign { margin-top: 7pt; }
   .doc-sign p { margin-bottom: 2pt; }
   .doc-sign .doc-date { margin-bottom: 6pt; }
   .doc-list li { line-height: 1.45; }
@@ -371,11 +371,11 @@
   .doc-t td { font-size: 8.9pt; }
   .doc-t th .doc-mini { display: none; }
   .doc-t tr.doc-total th, .doc-t tr.doc-total td { background: #f4f4f4 !important; }
-  .doc-list { font-size: 8.4pt; gap: 1.5px 12px; }
-  .doc-note { font-size: 7.2pt; color: #555; }
+  .doc-list { font-size: 8.4pt; gap: 1px 10px; line-height: 1.4; }
+  .doc-note { margin-top: 6px; padding-top: 5px; font-size: 7.2pt; color: #555; }
   .doc-sub { font-size: 9.6pt; }
   .doc-sign p, .doc-to { font-size: 10pt; }
-  .doc-to { margin-top: 10pt; }
+  .doc-to { margin-top: 7pt; }
 }
 
 @media (max-width: 380px) {

@@ -39,6 +39,11 @@
     return x ? esc(x).replace(/\n/g, "<br>") : "&nbsp;";
   }
   function vv(x) { x = (x == null ? "" : String(x)).trim(); return x ? esc(x) : ""; }
+  function hv(x) { x = (x == null ? "" : String(x)).trim(); return x ? esc(x) : "&nbsp;"; }
+  function dateCell(v) {
+    var d = kdate(v);
+    return d ? esc(d) : "20&nbsp;&nbsp;년&nbsp;&nbsp;월&nbsp;&nbsp;일";
+  }
   function fmtInput(el) {
     var d = String(el.value || "").replace(/[^\d]/g, "");
     el.value = d ? Number(d).toLocaleString("ko-KR") : "";
@@ -497,7 +502,7 @@
     var body = '<table class="doc-t"><tbody>'
       + r("부동산의 표시", addrBlock(s))
       + r("매매대금", money(s.amount) + " (" + illGeum(s.amount) + ")")
-      + r("계약일 / 잔금일", v(kdate(s.date1) || "&nbsp;") + " / " + v(kdate(s.date2) || "&nbsp;"))
+      + r("계약일 / 잔금일", hv(kdate(s.date1)) + " / " + hv(kdate(s.date2)))
       + '</tbody></table>'
       + '<p class="doc-body">위 부동산의 매매와 관련하여 매수인이 매도인에게 위 매매대금 전액을 지급하였고, 매도인이 이를 수령하였음을 확인합니다. 대금은 매수인 명의 계좌에서 매도인 명의 계좌로 이체하여 금융기록을 남겼습니다.</p>'
       + '<div class="doc-sign"><p class="doc-date">' + (kdate(s.date2) || "20&nbsp;&nbsp;년&nbsp;&nbsp;월&nbsp;&nbsp;일") + '</p>'
@@ -620,7 +625,7 @@
       + rows([
         r("소재지·표시", addrBlock(s)),
         r("부동산 고유번호", v(s.uniq)),
-        r("등기원인과 그 연월일", v((kdate(s.date2) || "20&nbsp;&nbsp;년&nbsp;&nbsp;월&nbsp;&nbsp;일") + " 매각 (강제경매)")),
+        r("등기원인과 그 연월일", dateCell(s.date2) + " 매각 (강제경매)"),
         r("등기의 목적", "소유권이전"),
         r("이전할 지분", "전부")
       ])
@@ -662,7 +667,7 @@
       + '</tbody></table>'
       + rows([
         r("부동산의 표시", addrBlock(s)),
-        r("등기원인과 그 연월일", v((kdate(s.date2) || "20&nbsp;&nbsp;년&nbsp;&nbsp;월&nbsp;&nbsp;일") + " 매각")),
+        r("등기원인과 그 연월일", dateCell(s.date2) + " 매각"),
         r("등기의 목적", "말소"),
         r("말소할 등기", s.erasureList ? esc(s.erasureList).replace(/\n/g, "<br>") : "별지 말소할 사항 참조")
       ])
@@ -893,7 +898,7 @@
           r("소재지·표시", addrBlock(s)),
           r("거래신고관리번호", v(s.dealNo)),
           r("거래가액", money(s.amount) + " (" + illGeum(s.amount) + ")"),
-          r("등기원인과 그 연월일", v((kdate(s.date1) || "20&nbsp;&nbsp;년&nbsp;&nbsp;월&nbsp;&nbsp;일") + " 매매")),
+          r("등기원인과 그 연월일", dateCell(s.date1) + " 매매"),
           r("등기의 목적", "소유권이전"),
           r("이전할 지분", "전부")
         ])
