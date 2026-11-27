@@ -1,11 +1,13 @@
 /* 즐부 허브 서비스 워커 — 셸은 캐시, 문서는 네트워크 우선 */
-const VERSION = "zlbu-hub-v1.1.1";
+const VERSION = "zlbu-hub-v1.2.0";
 
 const SHELL = [
   "./",
   "./index.html",
   "./styles.css",
   "./app.js",
+  "./deed.js",
+  "./deed.css",
   "./manifest.json",
   "./assets/hero-city.jpg",
   "./assets/profile.jpg",

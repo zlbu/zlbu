@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>즐부 — 경매·등기, 혼자 끝내는 힘</title>
-<meta name="description" content="즐부 박성찬의 경매·공매·셀프등기 실무 허브. 클래스유 기초강의, 클래스101 강의, 유튜브 강의 520편, 저서 3권, 물건검색 챌린지와 1:1 상담을 한곳에서.">
+<meta name="description" content="즐부 박성찬의 경매·공매·셀프등기 실무 허브. 클래스유·클래스101·유튜브 강의, 저서 3권, 취득세 계산과 신청서·위임장을 만들어 주는 셀프등기 서류 생성기, 물건검색 챌린지와 1:1 상담을 한곳에서.">
 <meta name="theme-color" content="#0A1220">
 <meta name="color-scheme" content="dark">
 <link rel="manifest" href="manifest.json">
@@ -15,13 +15,14 @@
 <meta name="apple-mobile-web-app-title" content="즐부">
 <meta property="og:type" content="website">
 <meta property="og:title" content="즐부 — 경매·등기, 혼자 끝내는 힘">
-<meta property="og:description" content="클래스유·클래스101·유튜브 강의 520편, 저서 3권, 물건검색 챌린지와 1:1 상담을 한곳에.">
+<meta property="og:description" content="클래스유·클래스101·유튜브 강의 520편, 저서 3권, 셀프등기 서류 생성기, 물건검색 챌린지와 1:1 상담을 한곳에.">
 <meta property="og:image" content="https://zlbu.github.io/zlbu/assets/og-cover.jpg">
 <meta property="og:url" content="https://zlbu.github.io/zlbu/">
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://zlbu.github.io/zlbu/">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="deed.css">
 </head>
 <body>
 <a class="skip-link" href="#main">본문으로 건너뛰기</a>
@@ -33,6 +34,7 @@
   <symbol id="i-chat" viewBox="0 0 24 24"><path d="M20 12.2c0 3.6-3.6 6.5-8 6.5-1 0-2-.2-2.9-.5L5 20l.9-3.2A6.2 6.2 0 0 1 4 12.2c0-3.6 3.6-6.5 8-6.5s8 2.9 8 6.5Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-8.5 8.5M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6.2 3.6h7.1l4.5 4.6V20a.8.8 0 0 1-.8.8H6.2a.8.8 0 0 1-.8-.8V4.4a.8.8 0 0 1 .8-.8Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M13 4v4.4h4.4M8.7 12.4h6.6M8.7 15.8h4.6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
   <symbol id="i-kakao" viewBox="0 0 24 24"><rect x="3.4" y="5" width="17.2" height="11.8" rx="5.2" fill="currentColor"/><path d="M8.6 16.2 7.2 19.6l3.9-2.4z" fill="currentColor"/></symbol>
 </svg>
 
@@ -50,6 +52,7 @@
       <button class="topnav__btn is-active" type="button" data-tab="home" aria-current="page">홈</button>
       <button class="topnav__btn" type="button" data-tab="lecture">강의·유튜브</button>
       <button class="topnav__btn" type="button" data-tab="store">전자책·도구</button>
+      <button class="topnav__btn" type="button" data-tab="deed">등기 생성</button>
       <button class="topnav__btn" type="button" data-tab="challenge">챌린지·상담</button>
     </nav>
   </header>
@@ -109,6 +112,11 @@
             <span class="quick__ico"><svg><use href="#i-chat"/></svg></span>
             <span class="quick__title">챌린지·상담</span>
             <span class="quick__sub">2년 반의 기록</span>
+          </button>
+          <button class="quick quick--wide" type="button" data-go="deed">
+            <span class="quick__ico"><svg><use href="#i-doc"/></svg></span>
+            <span class="quick__title">등기 생성기</span>
+            <span class="quick__sub">취득세·채권 계산하고 신청서·위임장까지 바로 인쇄</span>
           </button>
         </div>
 
@@ -545,6 +553,270 @@
       </div>
     </section>
 
+    <!-- ================= 등기 생성기 ================= -->
+    <section class="view" id="view-deed" role="tabpanel" aria-labelledby="tab-deed" hidden>
+      <div class="wrap">
+        <header class="page-head">
+          <p class="eyebrow">셀프등기 도구</p>
+          <h1>서류까지,<br>한 번에 만듭니다</h1>
+          <p>일반매매·경매·공매 중 하나를 고르고 값을 넣으면 취득세·국민주택채권·등기신청수수료를 계산해 <strong>신청서·위임장·취득세 신고서·체크리스트</strong>를 바로 만듭니다. A4로 인쇄하거나 PDF로 저장해 그대로 쓰세요.</p>
+        </header>
+
+        <div class="deed-privacy" role="note">
+          <span class="deed-privacy__ico" aria-hidden="true">🔒</span>
+          <p><strong>입력한 내용은 이 브라우저에만 남습니다.</strong> 이름·주민등록번호·주소·금액은 어떤 서버로도 보내지 않고 이 기기의 저장소에만 보관합니다. 공용 기기에서는 ‘입력 지우기’를 눌러 주세요.</p>
+        </div>
+
+        <form class="deed-ui" id="deedForm" autocomplete="off" novalidate>
+
+          <!-- 1. 유형 -->
+          <div class="deed-block">
+            <h2 class="deed-block__t"><span>1</span>어떤 등기인가요</h2>
+            <div class="type-grid" role="radiogroup" aria-label="등기 유형">
+              <button type="button" class="type-card is-on" data-type="sale" role="radio" aria-checked="true">
+                <b>일반매매</b><small>매도인·매수인 직거래</small>
+              </button>
+              <button type="button" class="type-card" data-type="auction" role="radio" aria-checked="false">
+                <b>경매</b><small>법원 매각 (타경)</small>
+              </button>
+              <button type="button" class="type-card" data-type="gongmae" role="radio" aria-checked="false">
+                <b>공매</b><small>온비드 · 캠코</small>
+              </button>
+            </div>
+            <div class="deed-sub" data-show="auction" hidden>
+              <label class="radio"><input type="radio" name="auctionMode" value="chuktak" checked><span>법원 촉탁 (표준)</span></label>
+              <label class="radio"><input type="radio" name="auctionMode" value="direct"><span>직접 등기 신청</span></label>
+            </div>
+            <p class="deed-tip" data-show="auction" hidden>촉탁은 법원이 등기소에 넘기는 방식이고, 직접 등기는 매수인이 매각허가결정 정본을 들고 등기소에 내는 방식입니다. 서류와 순서가 다릅니다.</p>
+          </div>
+
+          <!-- 2. 부동산 -->
+          <div class="deed-block">
+            <h2 class="deed-block__t"><span>2</span>부동산</h2>
+            <div class="field-grid">
+              <div class="field field--full">
+                <label for="fAddr">소재지</label>
+                <input id="fAddr" type="text" placeholder="서울특별시 송파구 가락로 71, 403호">
+              </div>
+              <div class="field field--full">
+                <label for="fDisplay">부동산의 표시 <em>면적·구조·대지권 비율</em></label>
+                <textarea id="fDisplay" rows="3" placeholder="철근콘크리트조 84.74㎡&#10;대지권 비율 49,671.6분의 43.10"></textarea>
+              </div>
+              <div class="field">
+                <label for="fUniq">부동산 고유번호</label>
+                <input id="fUniq" type="text" inputmode="numeric" placeholder="1173-2026-0001">
+              </div>
+              <div class="field">
+                <label for="fKind">물건 종류</label>
+                <select id="fKind">
+                  <option value="house">주택</option>
+                  <option value="land">토지</option>
+                  <option value="building">건축물·상가</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="fArea">전용면적 <em>㎡ · 농특세 85㎡ 판정</em></label>
+                <input id="fArea" type="number" step="0.01" min="0" inputmode="decimal" placeholder="84.74">
+              </div>
+              <div class="field">
+                <label for="fStd">시가표준액 <em>공시가격</em></label>
+                <div class="money-wrap"><input class="js-money" id="fStd" type="text" inputmode="numeric" placeholder="620,000,000"></div>
+              </div>
+              <div class="field">
+                <label for="fRegion">채권 매입률 지역</label>
+                <select id="fRegion">
+                  <option value="metro">서울특별시 · 광역시</option>
+                  <option value="other">그 밖의 지역</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. 금액과 날짜 -->
+          <div class="deed-block">
+            <h2 class="deed-block__t"><span>3</span>금액과 날짜</h2>
+            <div class="field-grid">
+              <div class="field field--full">
+                <label for="fAmount"><span id="lbAmount">거래가액</span></label>
+                <div class="money-wrap"><input class="js-money" id="fAmount" type="text" inputmode="numeric" placeholder="1,150,000,000"></div>
+              </div>
+              <div class="field">
+                <label for="fDate1" id="lbDate1">매매 계약일</label>
+                <input id="fDate1" type="date">
+              </div>
+              <div class="field">
+                <label for="fDate2" id="lbDate2">잔금 완납일</label>
+                <input id="fDate2" type="date">
+              </div>
+              <div class="field field--full" data-show="sale">
+                <label for="fDealNo">거래신고관리번호 <em>없으면 비워 두세요</em></label>
+                <input id="fDealNo" type="text" placeholder="2026-1173-0001">
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. 사건 정보 -->
+          <div class="deed-block" data-show="auction,gongmae" hidden>
+            <h2 class="deed-block__t"><span>4</span>사건 정보</h2>
+            <div class="field-grid" data-show="auction" hidden>
+              <div class="field">
+                <label for="fCourt">법원</label>
+                <input id="fCourt" type="text" placeholder="서울동부지방법원">
+              </div>
+              <div class="field">
+                <label for="fCaseNo">사건번호</label>
+                <input id="fCaseNo" type="text" placeholder="2025타경105432">
+              </div>
+              <div class="field">
+                <label for="fCreditor">채권자</label>
+                <input id="fCreditor" type="text" placeholder="○○신용협동조합">
+              </div>
+              <div class="field">
+                <label for="fDebtor">채무자</label>
+                <input id="fDebtor" type="text" placeholder="김채무">
+              </div>
+              <div class="field">
+                <label for="fOwner">소유자 <em>등기의무자</em></label>
+                <input id="fOwner" type="text" placeholder="김채무">
+              </div>
+            </div>
+            <div class="field-grid" data-show="gongmae" hidden>
+              <div class="field">
+                <label for="fDisposer">처분청 <em>위임기관</em></label>
+                <input id="fDisposer" type="text" placeholder="○○세무서">
+              </div>
+              <div class="field">
+                <label for="fManageNo">관리번호</label>
+                <input id="fManageNo" type="text" placeholder="2026-0001-001">
+              </div>
+              <div class="field">
+                <label for="fGmDebtor">체납자 <em>등기의무자</em></label>
+                <input id="fGmDebtor" type="text" placeholder="김체납">
+              </div>
+              <div class="field">
+                <label for="fGmRrn">체납자 주민등록번호</label>
+                <input id="fGmRrn" type="text" inputmode="numeric" placeholder="781021-1000000">
+              </div>
+              <div class="field field--full">
+                <label for="fGmAddr">체납자 주소</label>
+                <input id="fGmAddr" type="text" placeholder="서울특별시 노원구 노해로 00">
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. 세율 조건 -->
+          <div class="deed-block" id="houseOnly">
+            <h2 class="deed-block__t"><span>5</span>세율 조건 <em>주택일 때</em></h2>
+            <div class="field-grid">
+              <div class="field">
+                <label for="fHouseCount">취득 후 1세대 주택 수</label>
+                <select id="fHouseCount">
+                  <option value="1">1주택</option>
+                  <option value="2">2주택</option>
+                  <option value="3">3주택</option>
+                  <option value="4">4주택 이상</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="fFirstLimit">생애최초 감면 한도</label>
+                <select id="fFirstLimit">
+                  <option value="2000000">200만원 (일반)</option>
+                  <option value="3000000">300만원 (60㎡ 이하 소형 등)</option>
+                </select>
+              </div>
+            </div>
+            <div class="chk-grid">
+              <label class="chk"><input id="fAdjust" type="checkbox"><span>조정대상지역 주택<small>서울 25개 구·경기 일부. 계약일 기준 국토부 고시 확인</small></span></label>
+              <label class="chk"><input id="fTemp2" type="checkbox"><span>일시적 2주택<small>2주택일 때만. 기한 내 종전 주택 처분 조건</small></span></label>
+              <label class="chk"><input id="fFirst" type="checkbox"><span>생애최초 취득<small>본인·배우자 무주택, 12억원 이하 (2028.12.31까지)</small></span></label>
+            </div>
+          </div>
+
+          <!-- 6. 당사자 -->
+          <div class="deed-block">
+            <h2 class="deed-block__t"><span>6</span>당사자</h2>
+            <div data-show="sale">
+              <p class="deed-tip" style="margin:0 0 8px">매도인</p>
+              <div class="field-grid">
+                <div class="field"><label for="fSellerName">성명</label><input id="fSellerName" type="text" placeholder="김매도"></div>
+                <div class="field"><label for="fSellerRrn">주민등록번호</label><input id="fSellerRrn" type="text" inputmode="numeric" placeholder="700101-1000000"></div>
+                <div class="field"><label for="fSellerTel">전화번호</label><input id="fSellerTel" type="text" inputmode="tel" placeholder="010-0000-0001"></div>
+                <div class="field field--full"><label for="fSellerAddr">주소</label><input id="fSellerAddr" type="text" placeholder="서울특별시 송파구 가락로 71, 403호"></div>
+              </div>
+            </div>
+            <p class="deed-tip" style="margin:12px 0 8px">매수인 <span data-show="auction,gongmae">— 등기권리자·청구인</span></p>
+            <div class="field-grid">
+              <div class="field"><label for="fBuyerName">성명</label><input id="fBuyerName" type="text" placeholder="홍즐부"></div>
+              <div class="field"><label for="fBuyerRrn">주민등록번호</label><input id="fBuyerRrn" type="text" inputmode="numeric" placeholder="810228-1000000"></div>
+              <div class="field"><label for="fBuyerTel">전화번호</label><input id="fBuyerTel" type="text" inputmode="tel" placeholder="010-0000-0002"></div>
+              <div class="field field--full"><label for="fBuyerAddr">주소</label><input id="fBuyerAddr" type="text" placeholder="서울특별시 송파구 올림픽로 300, 101동 1001호"></div>
+            </div>
+            <p class="deed-tip" style="margin:12px 0 8px">대리인 <em>직접 방문하면 비워 두세요</em></p>
+            <div class="field-grid">
+              <div class="field"><label for="fAgentName">성명</label><input id="fAgentName" type="text" placeholder="박대리"></div>
+              <div class="field"><label for="fAgentTel">전화번호</label><input id="fAgentTel" type="text" inputmode="tel" placeholder="010-0000-0003"></div>
+              <div class="field field--full"><label for="fAgentAddr">주소</label><input id="fAgentAddr" type="text" placeholder="서울특별시 송파구 가락로 71, 404호"></div>
+            </div>
+          </div>
+
+          <!-- 7. 비용 조건 -->
+          <div class="deed-block">
+            <h2 class="deed-block__t"><span>7</span>비용 조건</h2>
+            <div class="field-grid">
+              <div class="field">
+                <label for="fDiscount">채권 즉시매도 할인율 <em>% · 당일 고시</em></label>
+                <input id="fDiscount" type="number" min="0" step="0.01" inputmode="decimal" placeholder="15">
+              </div>
+              <div class="field">
+                <label for="fFeeMethod">등기신청 방식</label>
+                <select id="fFeeMethod">
+                  <option value="paper">서면 방문 (18,000원)</option>
+                  <option value="eform">전자표준양식 (15,000원)</option>
+                  <option value="online">전자신청 (10,000원)</option>
+                </select>
+              </div>
+              <div class="field" data-show="auction,gongmae" hidden>
+                <label for="fErasures">말소할 등기 건수</label>
+                <input id="fErasures" type="number" min="0" step="1" inputmode="numeric" placeholder="3">
+              </div>
+              <div class="field field--full" data-show="auction,gongmae" hidden>
+                <label for="fErasureList">말소할 사항 <em>한 줄에 하나 · 순위번호 | 등기목적 | 접수일자 | 접수번호 | 비고</em></label>
+                <textarea id="fErasureList" rows="3" placeholder="갑구 3번 | 압류 | 2025. 3. 6. | 802563 | 채권자 ○○세무서&#10;을구 11번 | 근저당권설정 | 2024. 7. 9. | 116759 | 채권최고액 3억원"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="deed-tools">
+            <button class="btn btn--primary btn--sm" type="button" id="deedPrint">인쇄 / PDF 저장</button>
+            <button class="btn btn--ghost btn--sm" type="button" id="deedCopy">텍스트 복사</button>
+            <button class="btn btn--ghost btn--sm" type="button" id="deedSample">예시값 넣기</button>
+            <button class="btn btn--ghost btn--sm" type="button" id="deedReset">입력 지우기</button>
+          </div>
+        </form>
+
+        <section class="deed-sum" id="deedSum"></section>
+
+        <section class="deed-out" id="deedOut">
+          <div class="deed-out__head no-print">
+            <h2 class="section-title">생성된 서류</h2>
+            <p class="deed-out__hint">A4에 맞춰 짜여 있습니다. PDF로 받으려면 인쇄 창에서 ‘PDF로 저장’을 고르세요. 값을 바꾸면 서류도 바로 다시 만들어집니다.</p>
+          </div>
+          <div id="deedDocs"></div>
+        </section>
+
+        <div class="card deed-cta no-print">
+          <strong>권리관계가 복잡하거나 직접 다녀야 할 때</strong>
+          <p>압류·가처분 말소, 배당, 명도, 보정 요구처럼 계산만으로 끝나지 않는 일은 1:1로 봅니다. 셀프등기 자동완성 엑셀 3종(경매·일반매매·공매)도 함께 안내합니다.</p>
+          <div class="btn-row">
+            <a class="btn btn--primary btn--sm" href="http://pf.kakao.com/_IxfqeX/chat" target="_blank" rel="noopener">카카오톡 1:1 상담</a>
+            <a class="btn btn--ghost btn--sm" href="#store" data-go="store">엑셀 3종 안내</a>
+          </div>
+        </div>
+        <p class="fineprint no-print">계산은 2026년 현행 세율·수수료(지방세법·농어촌특별세법·주택도시기금법 시행령·등기사항증명서 등 수수료규칙)를 기준으로 한 참고값입니다. 실제 고지액은 위택스·이택스와 은행 창구의 당일 기준을 따르며, 이 화면은 세무·법률 자문이 아닙니다.</p>
+      </div>
+    </section>
+
+
   </main>
 
   <footer class="site-footer">
@@ -571,11 +843,15 @@
   <button class="tab" id="tab-store" role="tab" aria-selected="false" aria-controls="view-store" data-tab="store">
     <svg><use href="#i-book"/></svg><span>전자책·도구</span>
   </button>
+  <button class="tab" id="tab-deed" role="tab" aria-selected="false" aria-controls="view-deed" data-tab="deed">
+    <svg><use href="#i-doc"/></svg><span>등기 생성</span>
+  </button>
   <button class="tab" id="tab-challenge" role="tab" aria-selected="false" aria-controls="view-challenge" data-tab="challenge">
     <svg><use href="#i-chat"/></svg><span>챌린지·상담</span>
   </button>
 </nav>
 
 <script src="app.js" defer></script>
+<script src="deed.js" defer></script>
 </body>
 </html>

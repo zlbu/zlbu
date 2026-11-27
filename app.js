@@ -2,12 +2,13 @@
 (function () {
   "use strict";
 
-  var TABS = ["home", "lecture", "store", "challenge"];
+  var TABS = ["home", "lecture", "store", "deed", "challenge"];
   var buttons = Array.prototype.slice.call(document.querySelectorAll("[data-tab]"));
   var views = {
     home: document.getElementById("view-home"),
     lecture: document.getElementById("view-lecture"),
     store: document.getElementById("view-store"),
+    deed: document.getElementById("view-deed"),
     challenge: document.getElementById("view-challenge")
   };
 

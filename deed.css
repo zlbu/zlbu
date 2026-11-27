@@ -1,0 +1,405 @@
+/* =========================================================
+   즐부 허브 — 등기 생성기 (셀프등기 서류 자동 작성)
+   입력 UI는 다크 테마, 생성 서류는 인쇄용 흰 종이(A4)
+   ========================================================= */
+
+/* ---------------- 안내 · 개인정보 ---------------- */
+.deed-privacy {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 10px;
+  margin: 16px 0 4px;
+  padding: 13px 14px;
+  border: 1px solid rgba(217, 178, 95, 0.28);
+  border-radius: var(--radius-sm);
+  background: linear-gradient(180deg, rgba(217, 178, 95, 0.09), rgba(217, 178, 95, 0.03));
+}
+.deed-privacy__ico { font-size: 16px; line-height: 1.4; }
+.deed-privacy p { margin: 0; font-size: 11.6px; line-height: 1.7; color: #c8d3e2; }
+.deed-privacy strong { color: var(--gold-light); }
+
+/* ---------------- 입력 블록 ---------------- */
+.deed-ui { display: block; }
+.deed-block {
+  margin-top: 14px;
+  padding: 16px 15px 17px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-sm);
+  background: linear-gradient(180deg, rgba(22, 36, 58, 0.7), rgba(13, 23, 41, 0.5));
+}
+.deed-block__t {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 12px;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+}
+.deed-block__t span {
+  display: grid;
+  place-items: center;
+  width: 20px; height: 20px;
+  border-radius: 7px;
+  background: rgba(217, 178, 95, 0.16);
+  border: 1px solid rgba(217, 178, 95, 0.4);
+  color: var(--gold-light);
+  font-size: 11px;
+  font-weight: 700;
+}
+.deed-block__t em {
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted-2);
+  margin-left: auto;
+}
+
+/* 유형 카드 */
+.type-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.type-card {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 12px 8px;
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--muted);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color .18s, background .18s, color .18s;
+}
+.type-card b { font-size: 13.5px; color: #dce5f2; letter-spacing: -0.02em; }
+.type-card small { font-size: 10.5px; line-height: 1.45; color: var(--muted-2); }
+.type-card.is-on {
+  border-color: rgba(217, 178, 95, 0.75);
+  background: linear-gradient(180deg, rgba(217, 178, 95, 0.16), rgba(217, 178, 95, 0.05));
+}
+.type-card.is-on b { color: var(--gold-light); }
+.type-card.is-on small { color: #cbb37c; }
+
+.deed-sub {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+.deed-sub .radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 12px;
+  border: 1px solid var(--line-soft);
+  border-radius: 999px;
+  font-size: 12.2px;
+  color: var(--muted);
+  cursor: pointer;
+}
+.deed-sub .radio:has(input:checked) {
+  border-color: rgba(217, 178, 95, 0.6);
+  color: var(--gold-light);
+  background: rgba(217, 178, 95, 0.1);
+}
+.deed-sub input { accent-color: var(--gold); }
+
+.deed-tip {
+  margin: 9px 0 0;
+  font-size: 10.8px;
+  line-height: 1.65;
+  color: var(--muted-2);
+}
+
+/* 폼 그리드 */
+.field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.field { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.field--full { grid-column: 1 / -1; }
+.field > label {
+  font-size: 11.2px;
+  font-weight: 600;
+  color: #a9b7ca;
+  letter-spacing: -0.01em;
+}
+.field > label em {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10.2px;
+  color: var(--muted-2);
+  margin-left: 4px;
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  min-height: 42px;
+  padding: 10px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  background: #0b1425;
+  color: var(--text);
+  font: inherit;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+}
+.field textarea { min-height: 76px; resize: vertical; line-height: 1.55; font-size: 13px; }
+.field input::placeholder,
+.field textarea::placeholder { color: #5c6b81; font-size: 12.5px; }
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: rgba(217, 178, 95, 0.7);
+  box-shadow: 0 0 0 3px rgba(217, 178, 95, 0.12);
+}
+.field select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, #8b9ab0 50%), linear-gradient(135deg, #8b9ab0 50%, transparent 50%); background-position: calc(100% - 16px) 18px, calc(100% - 11px) 18px; background-size: 5px 5px; background-repeat: no-repeat; padding-right: 30px; }
+.field input[type="date"] { color-scheme: dark; }
+.money-wrap { position: relative; }
+.money-wrap input { padding-right: 34px; }
+.money-wrap::after {
+  content: "원";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 11.5px;
+  color: var(--muted-2);
+  pointer-events: none;
+}
+
+/* 체크 줄 */
+.chk-grid { display: grid; grid-template-columns: 1fr; gap: 7px; margin-top: 12px; }
+.chk {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 10px 11px;
+  border: 1px solid var(--line-soft);
+  border-radius: 10px;
+  font-size: 12.2px;
+  line-height: 1.5;
+  color: #c3cede;
+  cursor: pointer;
+}
+.chk input { margin-top: 2px; accent-color: var(--gold); flex: 0 0 auto; }
+.chk span small { display: block; font-size: 10.5px; color: var(--muted-2); margin-top: 2px; }
+.chk:has(input:checked) { border-color: rgba(217, 178, 95, 0.5); background: rgba(217, 178, 95, 0.07); }
+
+/* ---------------- 계산 결과 ---------------- */
+.deed-sum { margin-top: 18px; }
+.sum-card {
+  padding: 16px 15px 14px;
+  border: 1px solid rgba(217, 178, 95, 0.3);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(120% 90% at 0% 0%, rgba(217, 178, 95, 0.14), transparent 60%),
+    linear-gradient(180deg, rgba(22, 36, 58, 0.92), rgba(13, 23, 41, 0.8));
+  box-shadow: var(--shadow);
+}
+.sum-head { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding-bottom: 12px; border-bottom: 1px solid var(--line-soft); }
+.sum-kicker { display: block; font-size: 10.8px; color: var(--muted-2); letter-spacing: 0.03em; }
+.sum-head strong { display: block; margin-top: 3px; font-size: 21px; letter-spacing: -0.03em; color: #f7ecd2; font-variant-numeric: tabular-nums; }
+.sum-head div:last-child strong { color: var(--gold-light); }
+.sum-t { width: 100%; margin-top: 10px; border-collapse: collapse; font-size: 12.4px; }
+.sum-t th, .sum-t td { padding: 7px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.06); text-align: left; vertical-align: middle; }
+.sum-t th { font-weight: 600; color: #c8d3e2; width: 46%; }
+.sum-t th small { display: block; font-weight: 500; font-size: 10.3px; color: var(--muted-2); margin-top: 1px; }
+.sum-t td { text-align: right; color: #eef3fa; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.sum-t tr.is-total th, .sum-t tr.is-total td { border-bottom: 0; padding-top: 11px; font-size: 13.4px; color: #fff3d6; }
+.sum-t tr.is-sub th, .sum-t tr.is-sub td { color: var(--muted-2); }
+.sum-notes { margin: 10px 0 0; padding: 0; list-style: none; display: grid; gap: 5px; }
+.sum-notes li { position: relative; padding-left: 11px; font-size: 10.9px; line-height: 1.65; color: var(--muted-2); }
+.sum-notes li::before { content: "·"; position: absolute; left: 2px; top: 0; color: var(--gold-deep); }
+.sum-badge {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  background: rgba(217, 178, 95, 0.16);
+  border: 1px solid rgba(217, 178, 95, 0.45);
+  color: var(--gold-light);
+}
+.sum-badge--warn { background: rgba(255, 122, 60, 0.14); border-color: rgba(255, 122, 60, 0.45); color: #ffc7a6; }
+
+/* ---------------- 생성 서류 ---------------- */
+.deed-out { margin-top: 26px; }
+.deed-out__head .section-title { margin-top: 0; }
+.deed-tools { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 8px; }
+.deed-out__hint { margin: 0 0 14px; font-size: 11px; line-height: 1.65; color: var(--muted-2); }
+
+.doc-sheet {
+  position: relative;
+  margin: 0 0 16px;
+  padding: 24px 20px 18px;
+  border-radius: 12px;
+  background: #fdfdfa;
+  color: #14181f;
+  box-shadow: 0 18px 40px -26px rgba(0, 0, 0, 0.9);
+  font-family: "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
+  font-size: 11.8px;
+  line-height: 1.55;
+  word-break: keep-all;
+}
+.doc-sheet * { box-sizing: border-box; }
+.doc-sheet h3 {
+  margin: 0 0 3px;
+  font-size: 19px;
+  letter-spacing: 0.06em;
+  text-align: center;
+  font-weight: 700;
+}
+.doc-sheet .doc-head { padding-bottom: 9px; margin-bottom: 12px; border-bottom: 1.5px solid #232a35; }
+.doc-sheet .doc-head p { margin: 0; text-align: center; font-size: 10.5px; color: #5b6675; }
+.doc-sub {
+  margin: 14px 0 5px;
+  padding-left: 7px;
+  border-left: 3px solid #232a35;
+  font-size: 11.6px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.doc-t { width: 100%; border-collapse: collapse; margin: 0 0 9px; }
+.doc-t th, .doc-t td {
+  border: 1px solid #9aa3b0;
+  padding: 5px 6px;
+  vertical-align: top;
+  text-align: left;
+  line-height: 1.5;
+}
+.doc-t th { background: #f0f1f3; font-weight: 600; font-size: 10.8px; letter-spacing: -0.01em; }
+.doc-t td { font-size: 11.4px; }
+.doc-t th.doc-l { width: 26%; }
+.doc-t--cols { table-layout: fixed; }
+.doc-t--cols th, .doc-t--cols td { overflow-wrap: anywhere; }
+.doc-t td.doc-num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.doc-t td.doc-c { text-align: center; }
+.doc-t tr.doc-total th, .doc-t tr.doc-total td { background: #f7f3e8; font-weight: 700; }
+.doc-t td.doc-muted { color: #6b7381; }
+.doc-list { margin: 0 0 9px; padding: 0; list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 3px 12px; font-size: 10.8px; }
+.doc-list--one { grid-template-columns: 1fr; }
+.doc-list li { position: relative; padding-left: 13px; line-height: 1.55; }
+.doc-list li::before { content: "☐"; position: absolute; left: 0; top: -1px; font-size: 11px; }
+.doc-list li.doc-list__head { padding-left: 0; font-weight: 700; font-size: 10.8px; }
+.doc-list li.doc-list__head::before { content: ""; }
+.doc-lead { margin: 0 0 9px; font-size: 11.4px; }
+.doc-body { margin: 10px 0; font-size: 11.6px; line-height: 1.75; text-align: justify; }
+.doc-sign { margin-top: 16px; text-align: center; }
+.doc-sign p { margin: 0 0 4px; font-size: 11.6px; }
+.doc-sign .doc-date { margin-bottom: 9px; letter-spacing: 0.04em; }
+.doc-sign .doc-line { display: inline-block; min-width: 130px; border-bottom: 1px solid #444b57; }
+.doc-sign .doc-stamp { display: inline-block; margin-left: 6px; color: #5b6675; }
+.doc-to { margin-top: 14px; text-align: center; font-size: 12.6px; font-weight: 700; letter-spacing: 0.08em; }
+.doc-note {
+  margin: 12px 0 0;
+  padding-top: 8px;
+  border-top: 1px dashed #c6ccd5;
+  font-size: 9px;
+  line-height: 1.5;
+  color: #6b7381;
+}
+.doc-flag {
+  display: inline-block;
+  padding: 1px 6px;
+  border: 1px solid #8f959f;
+  border-radius: 3px;
+  font-size: 9.5px;
+  color: #4d5563;
+}
+.doc-mini { font-size: 9.8px; color: #5b6675; }
+
+/* 홈 바로가기 — 등기 생성기 */
+.quick--wide { grid-column: 1 / -1; flex-direction: row; align-items: center; gap: 10px; }
+.quick--wide .quick__ico { margin-bottom: 0; }
+.quick--wide .quick__sub { flex: 1 1 auto; text-align: left; }
+
+/* ---------------- 하단 CTA ---------------- */
+.deed-cta { margin-top: 26px; }
+.deed-cta > strong { display: block; font-size: 14px; letter-spacing: -0.02em; margin-bottom: 4px; }
+.deed-cta > p { margin: 0 0 12px; font-size: 12.3px; line-height: 1.75; color: var(--muted); }
+
+/* ---------------- 인쇄 (A4) ---------------- */
+@media print {
+  @page { size: A4 portrait; margin: 0; }
+
+  html, body {
+    background: #fff !important;
+    color: #000 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .skip-link, .topbar, .tabbar, .site-footer,
+  .no-print, .deed-ui, .deed-privacy, .deed-cta,
+  .page-head, .deed-tools, .deed-out__head, .sum-notes { display: none !important; }
+
+  .app { max-width: none !important; margin: 0 !important; padding: 0 !important; min-height: 0 !important; }
+  .view:not(#view-deed) { display: none !important; }
+  #view-deed { display: block !important; }
+  #view-deed .wrap { padding: 0 !important; }
+  .deed-sum { display: none !important; }
+  .deed-out { margin: 0 !important; }
+
+  .doc-sheet {
+    page-break-after: always;
+    break-after: page;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    padding: 10mm 13mm 9mm !important;
+    box-sizing: border-box;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 9pt;
+    line-height: 1.42;
+  }
+  .doc-sheet:last-child { page-break-after: auto; break-after: auto; }
+  .doc-sheet h3 { font-size: 15pt; }
+  .doc-t { table-layout: auto; }
+  .doc-t--cols { table-layout: fixed; }
+  .doc-t th, .doc-t td { padding: 2.1pt 4pt; border-color: #444; overflow-wrap: anywhere; }
+  .doc-head { padding-bottom: 6pt; margin-bottom: 8pt; }
+  .doc-sub { margin: 7pt 0 2pt; }
+  .doc-sign { margin-top: 9pt; }
+  .doc-sign p { margin-bottom: 2pt; }
+  .doc-sign .doc-date { margin-bottom: 6pt; }
+  .doc-list li { line-height: 1.45; }
+  .doc-head, .doc-sub, .doc-t tr { break-inside: avoid; page-break-inside: avoid; }
+  .doc-t th { background: #eee !important; font-size: 8.1pt; }
+  .doc-t td { font-size: 8.9pt; }
+  .doc-t th .doc-mini { display: none; }
+  .doc-t tr.doc-total th, .doc-t tr.doc-total td { background: #f4f4f4 !important; }
+  .doc-list { font-size: 8.4pt; gap: 1.5px 12px; }
+  .doc-note { font-size: 7.2pt; color: #555; }
+  .doc-sub { font-size: 9.6pt; }
+  .doc-sign p, .doc-to { font-size: 10pt; }
+  .doc-to { margin-top: 10pt; }
+}
+
+@media (max-width: 380px) {
+  .field-grid { grid-template-columns: 1fr; }
+  .type-card { padding: 10px 6px; }
+  .type-card b { font-size: 12.5px; }
+}
+
+@media (min-width: 900px) {
+  .deed-block { padding: 20px 22px 22px; }
+  .field-grid { grid-template-columns: repeat(3, 1fr); }
+  .field--full { grid-column: 1 / -1; }
+  .type-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .type-card { padding: 16px 14px; }
+  .type-card b { font-size: 15px; }
+  .type-card small { font-size: 11.5px; }
+  .quick--wide { grid-column: auto; flex-direction: column; align-items: flex-start; gap: 2px; }
+  .quick--wide .quick__ico { margin-bottom: 8px; }
+  .chk-grid { grid-template-columns: 1fr 1fr; }
+  .sum-head strong { font-size: 26px; }
+  .doc-sheet { padding: 40px 44px 30px; font-size: 12.6px; max-width: 820px; margin: 0 auto 20px; }
+  .doc-sheet h3 { font-size: 22px; }
+  .doc-t td { font-size: 12.2px; }
+  .doc-t th { font-size: 11.4px; }
+  .doc-list { font-size: 11.4px; }
+  .doc-tools { position: sticky; top: 70px; z-index: 10; }
+}
