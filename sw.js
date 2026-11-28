@@ -1,5 +1,5 @@
 /* 즐부 허브 서비스 워커 — 셸은 캐시, 문서는 네트워크 우선 */
-const VERSION = "zlbu-hub-v1.2.1";
+const VERSION = "zlbu-hub-v1.2.2";
 
 const SHELL = [
   "./",
